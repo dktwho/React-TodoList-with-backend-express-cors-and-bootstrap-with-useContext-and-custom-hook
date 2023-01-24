@@ -12,6 +12,7 @@ const Form = ({setTodos}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setTodos((prev) => [...prev, {id: new Date(), title: input, status: false}] )
+    setInput('')
   }
 
   return (
