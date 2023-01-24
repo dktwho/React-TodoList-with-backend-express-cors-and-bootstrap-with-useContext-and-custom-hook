@@ -9,9 +9,15 @@ const Form = ({setTodos}) => {
     setInput(e.target.value)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setTodos((prev) => [...prev, {id: new Date(), title: input, status: false}] )
+    const response = await fetch(`${process.env.REACT_APP_FETCH}/todos`, {method: 'post', headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({title: input}) } )
+    const data = await response.json()
+
+    setTodos((prev) => [...prev, data] )
     setInput('')
   }
 
