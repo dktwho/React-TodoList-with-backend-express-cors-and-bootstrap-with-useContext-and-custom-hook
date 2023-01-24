@@ -11,7 +11,7 @@ const Todo = ({title, status, setTodos, id}) => {
 
   return (
     <li className="list-group-item align-items-center d-flex justify-content-between">An item
-    <button onClick={() => deleteHandler(id)} type="button" class="btn btn-danger">Danger</button></li>
+    <button onClick={() => deleteHandler(id)} type="button" className="btn btn-danger">Danger</button></li>
   )
 }
 
