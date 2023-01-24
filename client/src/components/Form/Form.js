@@ -14,7 +14,7 @@ const Form = ({setTodos}) => {
     const response = await fetch(`${process.env.REACT_APP_FETCH}/todos`, {method: 'post', headers: {
       'Content-type': 'application/json',
     },
-    body: JSON.stringify({title: input}) } )
+    body: JSON.stringify({title: input}), } )
     const data = await response.json()
 
     setTodos((prev) => [...prev, data] )

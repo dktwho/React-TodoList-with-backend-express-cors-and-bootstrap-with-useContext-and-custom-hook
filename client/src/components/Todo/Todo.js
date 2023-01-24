@@ -4,8 +4,12 @@ import React from 'react'
 
 const Todo = ({title, status, setTodos, id}) => {
 
-  const deleteHandler = (id) => {
-    setTodos((prev) => prev.filter((el) => el.id !== id))
+  const deleteHandler = async (id) => {
+    const response = await fetch(`${process.env.REACT_APP_FETCH}/todos/${id}`, {method: 'delete' })
+    if(response.ok) {
+      setTodos((prev) => prev.filter((el) => el.id !== id))
+    }
+    
   }
 
 

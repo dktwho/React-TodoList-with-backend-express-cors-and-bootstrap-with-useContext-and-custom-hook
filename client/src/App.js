@@ -6,7 +6,7 @@ import TodoList from './components/TodoList/TodoList';
 function App() {
   const [todos, setTodos] = useState([])
   useEffect(() => {
-    fetch('http://localhost:3030/api/v1/todos')
+    fetch(`${process.env.REACT_APP_FETCH}/todos`)
     .then(response => response.json())
     .then(data => setTodos(data))
   }, [])
