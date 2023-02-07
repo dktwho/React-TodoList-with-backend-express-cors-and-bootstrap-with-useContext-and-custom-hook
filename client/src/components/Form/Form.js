@@ -1,9 +1,11 @@
 
+import React, { useState, useContext } from 'react'
+import { TodoContext } from '../../contexts/TodoContextProvider'
 
-import React, { useState } from 'react'
 
-const Form = ({setTodos}) => {
+const Form = () => {
   const [input, setInput] = useState('')
+  const { setTodos } = useContext(TodoContext)
 
   const handleChange = (e) => {
     setInput(e.target.value)

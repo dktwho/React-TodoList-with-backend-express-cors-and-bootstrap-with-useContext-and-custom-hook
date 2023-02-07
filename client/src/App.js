@@ -1,22 +1,20 @@
-import { useEffect, useState } from 'react';
 import './App.css';
 import Form from './components/Form/Form';
 import TodoList from './components/TodoList/TodoList';
+import {TodoContextProvider} from './contexts/TodoContextProvider';
 
 function App() {
-  const [todos, setTodos] = useState([])
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_FETCH}/todos`)
-    .then(response => response.json())
-    .then(data => setTodos(data))
-  }, [])
+
 
   return (
+    <TodoContextProvider>
     <div className="container p-5">
-      <Form setTodos={setTodos} />
-      <TodoList todos={todos} setTodos={setTodos} />
+      <Form />
+      <TodoList />
       
     </div>
+
+    </TodoContextProvider>
   );
 }
 

@@ -1,17 +1,8 @@
+import { TodoContext } from '../../contexts/TodoContextProvider'
+import React, { useContext } from 'react'
 
-
-import React from 'react'
-
-const Todo = ({title, status, setTodos, id}) => {
-
-  const deleteHandler = async (id) => {
-    const response = await fetch(`${process.env.REACT_APP_FETCH}/todos/${id}`, {method: 'delete' })
-    if(response.ok) {
-      setTodos((prev) => prev.filter((el) => el.id !== id))
-    }
-    
-  }
-
+const Todo = ({title, status, id}) => {
+  const {deleteHandler} = useContext(TodoContext)
 
   return (
     <li className="list-group-item align-items-center d-flex justify-content-between">{title}
