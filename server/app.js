@@ -39,6 +39,7 @@ app.post('/api/v1/todos', (req, res) => {
 //   return res.json(currentTodo);
 // });
 
+
 app.delete('/api/v1/todos/:id', (req, res) => {
   DB.todos = DB.todos.filter((el) => el.id !== req.params.id);
   res.sendStatus(200);
