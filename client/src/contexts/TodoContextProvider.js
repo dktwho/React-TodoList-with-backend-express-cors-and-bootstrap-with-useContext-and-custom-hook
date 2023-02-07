@@ -1,20 +1,20 @@
 import { createContext, useEffect, useState } from "react"
+import useFetch from "../hooks/useFetch"
 
 const TodoContext = createContext()
 
 // hoc
 const TodoContextProvider = ({children}) => {
+  const [, , oxios] = useFetch()
   const [todos, setTodos] = useState([])
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_FETCH}/todos`)
-    .then(response => response.json())
+    oxios(`${process.env.REACT_APP_FETCH}/todos`)
     .then(data => setTodos(data))
   }, [])
 
   const deleteHandler = async (id) => {
-    console.log('in delete')
-    const response = await fetch(`${process.env.REACT_APP_FETCH}/todos/${id}`, {method: 'delete' })
-    if(response.ok) {
+    const response = await oxios(`${process.env.REACT_APP_FETCH}/todos/${id}`,'delete' )
+    if(response.message) {
       setTodos((prev) => prev.filter((el) => el.id !== id))
     }
   }

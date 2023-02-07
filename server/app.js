@@ -42,7 +42,7 @@ app.post('/api/v1/todos', (req, res) => {
 
 app.delete('/api/v1/todos/:id', (req, res) => {
   DB.todos = DB.todos.filter((el) => el.id !== req.params.id);
-  res.sendStatus(200);
+  res.status(200).json({message: 'deleted successfull'})
 });
 
 app.listen(PORT, () => {

@@ -1,11 +1,13 @@
 
 import React, { useState, useContext } from 'react'
 import { TodoContext } from '../../contexts/TodoContextProvider'
+import useFetch from '../../hooks/useFetch'
 
 
 const Form = () => {
   const [input, setInput] = useState('')
   const { setTodos } = useContext(TodoContext)
+  const [, , oxios] = useFetch()
 
   const handleChange = (e) => {
     setInput(e.target.value)
@@ -13,12 +15,9 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await fetch(`${process.env.REACT_APP_FETCH}/todos`, {method: 'post', headers: {
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify({title: input}), } )
-    const data = await response.json()
-
+    const data = await oxios(`${process.env.REACT_APP_FETCH}/todos`, 'post',  {title: input},
+    
+   )
     setTodos((prev) => [...prev, data] )
     setInput('')
   }
