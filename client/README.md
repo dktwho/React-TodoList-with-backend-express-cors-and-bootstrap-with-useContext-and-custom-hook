@@ -1,5 +1,11 @@
 # Содержание
 
+Todo с бэком.
+
+1. Вынос стейта из App и функции сетСтейта а также deleteHandler в отдельный файл контекста.
+2. Использование useContext для обращений соотвтесвующих компонентов к необходимым функциям.
+3. Создание кастомного хука useFecth имитирующий работу библиотеки axios.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

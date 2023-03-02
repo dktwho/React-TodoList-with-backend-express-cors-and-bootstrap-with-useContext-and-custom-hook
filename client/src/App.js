@@ -10,10 +10,8 @@ function App() {
     <TodoContextProvider>
     <div className="container p-5">
       <Form />
-      <TodoList />
-      
+      <TodoList />   
     </div>
-
     </TodoContextProvider>
   );
 }
