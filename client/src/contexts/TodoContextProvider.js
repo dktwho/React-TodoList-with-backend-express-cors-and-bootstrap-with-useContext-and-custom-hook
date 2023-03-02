@@ -19,8 +19,6 @@ const TodoContextProvider = ({children}) => {
     }
   }
 
-  
-
   return <TodoContext.Provider value={{
     todos, setTodos, deleteHandler
   }}>

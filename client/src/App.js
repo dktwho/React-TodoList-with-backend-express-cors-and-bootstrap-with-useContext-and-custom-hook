@@ -5,7 +5,6 @@ import {TodoContextProvider} from './contexts/TodoContextProvider';
 
 function App() {
 
-
   return (
     <TodoContextProvider>
     <div className="container p-5">
